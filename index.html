@@ -207,12 +207,12 @@
   <div class="form-panel">
     <h2>Your Details</h2>
     <div class="field">
-      <label>First Name *</label>
-      <input type="text" id="firstName" placeholder="e.g. Chris" oninput="updatePreview()">
+      <label>Name *</label>
+      <input type="text" id="firstName" placeholder="e.g. John Smith" oninput="updatePreview()">
     </div>
     <div class="field">
-      <label>Surname *</label>
-      <input type="text" id="surname" placeholder="e.g. Morgan" oninput="updatePreview()">
+      <label>Title *</label>
+      <input type="text" id="surname" placeholder="e.g. Event Coordinator" oninput="updatePreview()">
     </div>
     <div class="divider"></div>
     <div class="field">
@@ -225,7 +225,7 @@
     </div>
     <div class="field">
       <label>Email Address *</label>
-      <input type="email" id="email" placeholder="e.g. chris@meridiangrand.co.uk" oninput="updatePreview()">
+      <input type="email" id="email" placeholder="e.g. john@meridiangrand.co.uk" oninput="updatePreview()">
     </div>
   </div>
   <div class="preview-panel">
@@ -280,8 +280,8 @@ const ASSETS = {
 };
 
 function getSignatureHTML() {
-  const firstName = document.getElementById('firstName').value || 'Chris';
-  const surname = document.getElementById('surname').value || 'Morgan';
+  const firstName = document.getElementById('firstName').value || 'Chris Morgan';
+  const surname = document.getElementById('surname').value || 'COO';
   const phone = document.getElementById('phone').value || '020 4600 0124';
   const mobile = document.getElementById('mobile').value;
   const email = document.getElementById('email').value || 'chris@meridiangrand.co.uk';
