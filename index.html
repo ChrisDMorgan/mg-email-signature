@@ -208,7 +208,7 @@
     <h2>Your Details</h2>
     <div class="field">
       <label>Name *</label>
-      <input type="text" id="firstName" placeholder="e.g. John Smith" oninput="updatePreview()">
+      <input type="text" id="firstName" placeholder="e.g. Rebecca Smith" oninput="updatePreview()">
     </div>
     <div class="field">
       <label>Title *</label>
@@ -220,12 +220,16 @@
       <input type="text" id="phone" placeholder="020 4600 0124" value="020 4600 0124" oninput="updatePreview()">
     </div>
     <div class="field">
+      <label>Direct Dial (Optional)</label>
+      <input type="text" id="directDial" placeholder="e.g. 020 4600 0125" oninput="updatePreview()">
+    </div>
+    <div class="field">
       <label>Mobile (Optional)</label>
       <input type="text" id="mobile" placeholder="e.g. 07841 019 563" oninput="updatePreview()">
     </div>
     <div class="field">
       <label>Email Address *</label>
-      <input type="email" id="email" placeholder="e.g. john@meridiangrand.co.uk" oninput="updatePreview()">
+      <input type="email" id="email" placeholder="e.g. rebecca@meridiangrand.co.uk" oninput="updatePreview()">
     </div>
   </div>
   <div class="preview-panel">
@@ -275,26 +279,29 @@ const ASSETS = {
   igUrl: "https://www.instagram.com/meridian_grand/",
   ttUrl: "https://www.tiktok.com/@meridiangrand",
   fbUrl: "https://www.facebook.com/MeridianGrand/",
+  li: "data:image/png;base64,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",
+  liUrl: "https://www.linkedin.com/company/meridian-grand-limited/",
   website: "https://www.meridiangrand.co.uk",
   address: "Advent Way, London N18 3AF"
 };
 
 function getSignatureHTML() {
-  const firstName = document.getElementById('firstName').value || 'Chris Morgan';
-  const surname = document.getElementById('surname').value || 'COO';
-  const phone = document.getElementById('phone').value || '020 4600 0124';
+  const firstName = document.getElementById('firstName').value || '[Your Name]';
+  const surname = document.getElementById('surname').value || '[Your Title]';
+  const phone = document.getElementById('phone').value || '[Your Phone]';
+  const directDial = document.getElementById('directDial').value;
   const mobile = document.getElementById('mobile').value;
-  const email = document.getElementById('email').value || 'chris@meridiangrand.co.uk';
+  const email = document.getElementById('email').value || '[Your Email]';
 
   return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:480px;">
-  <tr><td colspan="3" style="padding-bottom:18px;">
-    <div style="width:160px;height:0;border-top:1.5px solid #9C8146;"></div>
-  </td></tr>
   <tr>
-    <td style="width:50px;vertical-align:top;padding-right:20px;">
+    <td style="width:50px;vertical-align:top;padding-right:16px;">
       <img src="${ASSETS.logo}" width="50" height="50" alt="Meridian Grand" style="display:block;border:0;outline:none;">
     </td>
-    <td style="vertical-align:top;">
+    <td width="2" bgcolor="#9C8146" style="width:2px;background-color:#9C8146;padding:0;margin:0;font-size:0;line-height:0;">
+      &nbsp;
+    </td>
+    <td style="vertical-align:top;padding-left:16px;">
       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
         <tr><td style="padding-bottom:1px;">
           <span style="font-family:'Playfair Display',Georgia,serif;font-size:18px;color:#151414;font-weight:700;line-height:1.2;">${firstName}</span>
@@ -305,6 +312,9 @@ function getSignatureHTML() {
         <tr><td style="padding-bottom:0;">
           <a href="tel:${phone.replace(/\s/g,'')}" style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:12px;color:#585757;text-decoration:none;line-height:1.7;display:block;">${phone}</a>
         </td></tr>
+        ${directDial ? `<tr><td style="padding-bottom:0;">
+          <a href="tel:${directDial.replace(/\\s/g,'')}" style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:12px;color:#585757;text-decoration:none;line-height:1.7;display:block;">${directDial}</a>
+        </td></tr>` : ''}
         ${mobile ? `<tr><td style="padding-bottom:0;">
           <a href="tel:${mobile.replace(/\\s/g,'')}" style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:12px;color:#585757;text-decoration:none;line-height:1.7;display:block;">${mobile}</a>
         </td></tr>` : ''}
@@ -315,7 +325,7 @@ function getSignatureHTML() {
           <span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#151414;font-weight:700;line-height:1.3;">Meridian Grand</span>
         </td></tr>
         <tr><td style="padding-bottom:9px;">
-          <span style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:9px;color:#9C8146;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;line-height:1.3;">Where It Was Always Meant to Be.</span>
+          <span style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:9px;color:#9C8146;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;line-height:1.3;">Where It Was Always Meant to Be</span>
         </td></tr>
         <tr><td style="padding-bottom:0;">
           <span style="font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:11px;color:#888888;line-height:1.5;">${ASSETS.address}</span>
@@ -328,7 +338,8 @@ function getSignatureHTML() {
             <tr>
               <td style="padding-right:14px;"><a href="${ASSETS.igUrl}" style="text-decoration:none;border:0;"><img src="${ASSETS.ig}" width="18" height="18" alt="Instagram" style="display:block;border:0;outline:none;"></a></td>
               <td style="padding-right:14px;"><a href="${ASSETS.ttUrl}" style="text-decoration:none;border:0;"><img src="${ASSETS.tt}" width="18" height="18" alt="TikTok" style="display:block;border:0;outline:none;"></a></td>
-              <td><a href="${ASSETS.fbUrl}" style="text-decoration:none;border:0;"><img src="${ASSETS.fb}" width="18" height="18" alt="Facebook" style="display:block;border:0;outline:none;"></a></td>
+              <td style="padding-right:14px;"><a href="${ASSETS.fbUrl}" style="text-decoration:none;border:0;"><img src="${ASSETS.fb}" width="18" height="18" alt="Facebook" style="display:block;border:0;outline:none;"></a></td>
+              <td><a href="${ASSETS.liUrl}" style="text-decoration:none;border:0;"><img src="${ASSETS.li}" width="18" height="18" alt="LinkedIn" style="display:block;border:0;outline:none;"></a></td>
             </tr>
           </table>
         </td></tr>
